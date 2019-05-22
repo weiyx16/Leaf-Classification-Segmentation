@@ -1,5 +1,15 @@
-# full assembly of the sub-parts to form the complete net
-# https://github.com/milesial/Pytorch-UNet/
+'''
+
+Leaf Vein Segmentation based on U-Net or Resnetbased-FCN
+3 kind of leaves provided from assistant teachers
+Pytorch 1.1.0 & python 3.6
+
+Author: @weiyx16.github.io
+weiyx16@mails.tsinghua.edu.cn
+
+# U-Net-Adapted Network Structure.function
+Adapted from https://github.com/milesial/Pytorch-UNet/
+'''
 
 import torch
 import torch.nn as nn

@@ -1,6 +1,6 @@
 '''
 
-Leaf Vein Segmentation based on U-Net or FCN
+Leaf Vein Segmentation based on U-Net or Resnetbased-FCN
 3 kind of leaves provided from assistant teachers
 Pytorch 1.1.0 & python 3.6
 
@@ -120,9 +120,6 @@ def train_model(model, dataloaders, criterion, optimizer, lr_decay = None, num_e
             
             epoch_loss = running_loss / len(dataloaders[phase].dataset)
 
-            if lr_decay != None:
-                lr_decay.step(epoch_loss)
-
             print(' {} Epoch Loss: {:.4f}'.format(phase, epoch_loss))
 
             # deep copy the model
@@ -133,6 +130,10 @@ def train_model(model, dataloaders, criterion, optimizer, lr_decay = None, num_e
                 val_acc_history.append(epoch_loss)
             if phase == 'train':
                 train_acc_history.append(epoch_loss)
+                train_epoch_loss = epoch_loss
+
+        if lr_decay != None:
+            lr_decay.step(train_epoch_loss)
 
     # Finish training
     time_elapsed = time.time() - since
@@ -169,6 +170,7 @@ def initialize_model(model_name, feature_extract=False, use_pretrained=False, pr
             model_ft.load_state_dict(torch.load(pre_model))
         input_size = 512
         output_size = 512
+        learningrate = 1e-1
 
     elif model_name == "U_Net":
         """ U_Net
@@ -178,6 +180,7 @@ def initialize_model(model_name, feature_extract=False, use_pretrained=False, pr
             model_ft.load_state_dict(torch.load(pre_model))
         input_size = 572
         output_size = 388
+        learningrate = 1e-1
 
     elif model_name == "FCN":
         model_ft = models.resnet50(pretrained=use_pretrained)
@@ -186,17 +189,18 @@ def initialize_model(model_name, feature_extract=False, use_pretrained=False, pr
 
         input_size = 224
         output_size = 224
+        learningrate = 1e-3
     else:
         print("Invalid model name, exiting...")
         exit()
 
-    return model_ft, input_size, output_size
+    return model_ft, input_size, output_size, learningrate
 
 
 if __name__ == "__main__":
     # Step1 Model:
     # Initialize the model for this run
-    model_ft, input_size, output_size = initialize_model(model_name, feature_extract, use_pretrained=use_pretrained, pre_model=pre_model_path)
+    model_ft, input_size, output_size, learningrate = initialize_model(model_name, feature_extract, use_pretrained=use_pretrained, pre_model=pre_model_path)
 
     # Print the model we just instantiated
     # print(model_ft)
@@ -233,7 +237,7 @@ if __name__ == "__main__":
                 params_to_update.append(param)
 
     # Observe that all parameters are being optimized
-    optimizer_ft = optim.Adam(params_to_update, lr=1e-1) #optim.SGD(params_to_update, lr = 0.1, momentum=0.9, weight_decay=0.001)
+    optimizer_ft = optim.Adam(params_to_update, lr=learningrate) #optim.SGD(params_to_update, lr = 0.1, momentum=0.9, weight_decay=0.001)
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer_ft,mode='min',factor=0.1,patience=10) #optim.lr_scheduler.StepLR(optimizer_ft, step_size = 20, gamma=0.33)
     # Step5 Loss and train
     # Setup the loss fxn

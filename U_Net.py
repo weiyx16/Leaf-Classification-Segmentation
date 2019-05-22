@@ -1,13 +1,13 @@
 '''
 
-Leaf Vein Segmentation based on U-Net or FCN
+Leaf Vein Segmentation based on U-Net or Resnetbased-FCN
 3 kind of leaves provided from assistant teachers
 Pytorch 1.1.0 & python 3.6
 
 Author: @weiyx16.github.io
 weiyx16@mails.tsinghua.edu.cn
 
-# Network Structure.function
+# U-Net Network Structure.function
 Adapted from https://github.com/milesial/Pytorch-UNet/
 '''
 

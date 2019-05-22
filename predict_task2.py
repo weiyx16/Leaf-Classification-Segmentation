@@ -7,7 +7,7 @@ Pytorch 1.1.0 & python 3.6
 Author: @weiyx16.github.io
 weiyx16@mails.tsinghua.edu.cn
 
-# Network Prediction.function
+# Network Prediction.function (Single image input)
 
 '''
 import torch
@@ -15,13 +15,14 @@ import PIL.Image as Image
 import numpy as np
 from UNet_Adapted import UNet_Adapted
 from U_Net import U_Net
-from torchvision import transforms
+from FCN import FCN
+from torchvision import transforms, models
 import matplotlib.pyplot as plt
 
 image_path = './test.jpg'
-input_size = 512
-output_size = 512
-
+input_size = 224
+output_size = 224
+n_Classes = 1
 input_data_transforms = transforms.Compose([
             transforms.Resize((input_size, input_size)),
             transforms.ToTensor(),
@@ -33,8 +34,9 @@ image = input_data_transforms(Image.open(image_path))
 
 image = image.unsqueeze(0) # for 4 channel input
 
-model = UNet_Adapted(3, 1)
-model.load_state_dict(torch.load('../model/UNet_Adapted_model_task2.pkl'))
+model_ft = models.resnet50(pretrained=None)
+model = FCN(model_ft, n_Classes, input_size) # UNet_Adapted(3, n_Classes)
+model.load_state_dict(torch.load('../model/FCN_model_task2.pkl'))
 
 model.eval()
 

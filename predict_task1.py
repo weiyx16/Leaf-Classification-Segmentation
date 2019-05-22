@@ -7,7 +7,7 @@ Pytorch 1.1.0 & python 3.6
 Author: @weiyx16.github.io
 weiyx16@mails.tsinghua.edu.cn
 
-# Network Prediction.function
+# Network Prediction.function (Single image input)
 
 '''
 
