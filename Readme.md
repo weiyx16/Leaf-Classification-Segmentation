@@ -58,17 +58,30 @@ As for FCN, actually I just modify the last two layer of Resnet-50 and add in so
 
 + Evaluation  
 
-<div align="center">
-<table><tr>
-<td><img src="./img/test.jpg" width = "200" height = "200" alt="test1" align=right border=0></td>
-<td><img src="./img/test_img_mask.png" width = "200" height = "200" alt="test1_mask" align=right border=0></td>
-</tr></table>
+<p align = "center">
+<img src="./img/test.jpg" width = "200" height = "200" alt="test">
+<img src="./img/test_img_mask.png" width = "200" height = "200" alt="test_mask">
+</p>
 
-<table><tr>
-<td><img src="./img/test2.jpg" width = "200" height = "200" alt="test2" align=right border=0></td>
-<td><img src="./img/test2_img_mask.png" width = "200" height = "200" alt="test2_mask" align=right border=0></td>
-</tr></table>
-</div>
+<p align = "center">
+<img src="./img/test2.jpg" width = "200" height = "200" alt="test2">
+<img src="./img/test2_img_mask.png" width = "200" height = "200" alt="test2_mask">
+</p>
+
+[Comment]:
+
+    <div align="center">  
+    <table><tr>  
+
+    <td><img src="./img/test.jpg" width = "200" height = "200" alt="test1" align=right border=0></td>
+    <td><img src="./img/test_img_mask.png" width = "200" height = "200" alt="test1_mask" align=right border=0></td>
+    </tr></table>
+
+    <table><tr>
+    <td><img src="./img/test2.jpg" width = "200" height = "200" alt="test2" align=right border=0></td>
+    <td><img src="./img/test2_img_mask.png" width = "200" height = "200" alt="test2_mask" align=right border=0></td>
+    </tr></table>
+    </div>
 
 ## Data and Pretrained Model
 
