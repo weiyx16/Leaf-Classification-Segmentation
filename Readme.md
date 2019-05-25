@@ -47,13 +47,13 @@ As for FCN, actually I just modify the last two layer of Resnet-50 and add in so
 + Adapted-Unet  
 
 <div align="center">
-<img src="./img/Figure_Unet.png" width = "300" height = "200" alt="U-Net Training" align=center />
+<img src="./img/Figure_Unet.png" width = "600" height = "400" alt="U-Net Training" align=center />
 </div>
 
 + Naive FCN  
 
 <div align="center">
-<img src="./img/Figure_fcn.png" width = "300" height = "200" alt="FCN Training" align=center />
+<img src="./img/Figure_fcn.png" width = "600" height = "400" alt="FCN Training" align=center />
 </div>
 
 + Evaluation  
@@ -67,21 +67,6 @@ As for FCN, actually I just modify the last two layer of Resnet-50 and add in so
 <img src="./img/test2.jpg" width = "200" height = "200" alt="test2">
 <img src="./img/test2_img_mask.png" width = "200" height = "200" alt="test2_mask">
 </p>
-
-[Comment]:
-
-    <div align="center">  
-    <table><tr>  
-
-    <td><img src="./img/test.jpg" width = "200" height = "200" alt="test1" align=right border=0></td>
-    <td><img src="./img/test_img_mask.png" width = "200" height = "200" alt="test1_mask" align=right border=0></td>
-    </tr></table>
-
-    <table><tr>
-    <td><img src="./img/test2.jpg" width = "200" height = "200" alt="test2" align=right border=0></td>
-    <td><img src="./img/test2_img_mask.png" width = "200" height = "200" alt="test2_mask" align=right border=0></td>
-    </tr></table>
-    </div>
 
 ## Data and Pretrained Model
 
