@@ -34,10 +34,10 @@ print("Torchvision Version: ",torchvision.__version__)
 # hyperparameter
 # Top level data directory. Here we assume the format of the directory conforms to the ImageFolder structure
 # structure in image-mask pair:
-# root/train/input
-# root/train/mask
-# root/val/input
-# root/val/mask
+# data_dir/train/input
+# data_dir/train/mask
+# data_dir/val/input
+# data_dir/val/mask
 
 data_dir = "../data/Task2"
 

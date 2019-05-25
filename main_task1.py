@@ -28,13 +28,13 @@ print("Torchvision Version: ",torchvision.__version__)
 # hyperparameter
 # Top level data directory. Here we assume the format of the directory conforms to the ImageFolder structure
 # structure in classification:
-# root/dog/xxx.png
-# root/dog/xxy.png
-# root/dog/xxz.png
+# data_dir/train/Leaf_0/xxx.png
+# data_dir/train/Leaf_1/xy.png
+# data_dir/train/Leaf_2/xxz.png
 
-# root/cat/123.png
-# root/cat/nsdf3.png
-# root/cat/asd932_.png
+# data_dir/val/Leaf_0/lxx.png
+# data_dir/val/Leaf_1/gy.png
+# data_dir/val/Leaf_2/llz.png
 data_dir = "../data/Task1"
 
 # Models to choose from [resnet, alexnet, vgg, squeezenet, densenet, inception]
